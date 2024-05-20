@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Cars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .car {
+            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .car p {
+            text-align: left;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .car img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .order-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .order-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Available Cars</h2>
+<ul>
+    {% for car in cars %}
+        <li class="car">
+            <p>
+                <strong>Model:</strong> {{ car.model }}<br>
+                <strong>Brand:</strong> {{ car.brand }}<br>
+                <strong>Price per Day:</strong> {{ car.price_per_day }}<br>
+                <strong>Available:</strong> {{ car.available }}<br>
+            </p>
+            {% if car.photo %}
+                <img src="{{ car.photo.url }}" alt="{{ car.model }}">
+            {% else %}
+                <p>No photo available</p>
+            {% endif %}
+            <a href="{% url 'order_car' car.id %}" class="order-button">Заказать</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Car Details</h2>
+  <p><strong>Model:</strong> {{ car.model }}</p>
+  <p><strong>Brand:</strong> {{ car.brand }}</p>
+  <p><strong>Price per Day:</strong> {{ car.price_per_day }}</p>
+  <p><strong>Available:</strong> {{ car.available }}</p>
+  <p><strong>Photo:</strong></p>
+  <img src="{{ car.photo.url }}" alt="Car Photo">
+{% endblock %}

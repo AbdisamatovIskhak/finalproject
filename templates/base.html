@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Car Rental{% endblock %}</title>
+    <!-- Ваши стили CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'car_list' %}">Cars</a></li>
+            
+            <!-- Другие ссылки на страницы вашего приложения -->
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- Здесь будет отображаться содержимое каждого конкретного шаблона, который расширяет base.html -->
+        {% endblock %}
+    </main>
+
+    <!-- Ваши скрипты JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

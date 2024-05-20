@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Order List</h2>
+  <ul>
+    {% for order in orders %}
+      <li>
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>User:</strong> {{ order.user }}</p>
+        <p><strong>Car:</strong> {{ order.car }}</p>
+        <p><strong>Start Date:</strong> {{ order.start_date }}</p>
+        <p><strong>End Date:</strong> {{ order.end_date }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <a href="{% url 'order_detail' order.id %}">View Details</a> 
+        <hr>
+      </li>
+    {% empty %}
+      <li>No orders available</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

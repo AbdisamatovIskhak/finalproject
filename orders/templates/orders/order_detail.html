@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Order Details</h2>
+  <p><strong>Order ID:</strong> {{ order.id }}</p>
+  <p><strong>User:</strong> {{ order.user }}</p>
+  <p><strong>Car:</strong> {{ order.car }}</p>
+  <p><strong>Start Date:</strong> {{ order.start_date }}</p>
+  <p><strong>End Date:</strong> {{ order.end_date }}</p>
+  <p><strong>Status:</strong> {{ order.status }}</p>
+  <a href="{% url 'edit_order' order.id %}">Edit</a> <!-- Ссылка для редактирования заказа -->
+{% endblock %}
